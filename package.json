@@ -1,0 +1,21 @@
+{
+  "name": "fractal-css",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "fcompose": "^0.2.1",
+    "autoprefixer": "^3.0.0",
+    "find": "^0.1.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuanchuan/fractal-css"
+  },
+  "author": "yuanchuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuanchuan/fractal-css/issues"
+  },
+  "homepage": "https://github.com/yuanchuan/fractal-css"
+}

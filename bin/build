@@ -1,0 +1,83 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var exec = require('child_process').exec;
+
+var find = require('find');
+var compose = require('fcompose');
+var autoprefixer = require('autoprefixer');
+
+var join = path.join;
+
+var dir = {
+  src:      join(__dirname, '../src'),
+  template: join(__dirname, '../template')
+};
+
+var read = function(file, fn) {
+  var stat = fs.statSync(file);
+  return stat.isFile() 
+    ? fs.readFileSync(file, 'utf-8')
+    : file;
+};
+
+var setStyle = function(html, style) {
+  var reg = /(<style>)([\s\S].+[\s\S]*)(<\/style>)/;
+  style = style
+    .split(/\n+/g)
+    .filter(function(line) {
+      return !!line;
+    })
+    .map(function(line) {
+      return '    ' + line.replace(/^\n|\n$/g, '')
+    })
+    .join('\n'); 
+  return html.replace(reg, function(_, head, body, tail) {
+    return [head, style, '  ' + tail].join('\n');
+  });
+}
+
+var setBody = function(html, tags) {
+  var reg = /(<div[\s\w\-="']+>)([\s\S]*.+[\s\S]*)(<\/div>)/;
+  tags = '\n    ' + tags.replace(/^<div>|<\/div>$/, '') + '  ';
+  return html.replace(reg, function(_, head, body, tail) {
+    return head + tags + tail;          
+  });
+};
+
+var getLevel = function(html) {
+  var level = 0;
+  html.replace(/data\-level="(\d+)"/, function(_, n) {
+    level = n || 0;;
+  });
+  return level;
+}
+
+var buildTag = function(generator, level, fn) {
+  var cmd = 'runhaskell ' + generator + ' ' + level;
+  exec(cmd, {maxBuffer: 10000 * 1024}, function(err, output) {
+    if (err) throw err;
+    fn(output);
+  });
+}
+
+find
+  .eachdir(/^[^_]/, dir.src, function(src) {
+    
+    var pathRule = join(src, 'rule.css');
+    var pathHtml = join(src, 'index.html');
+    var pathGen = join(src, 'generator.hs');
+
+    var style = autoprefixer.process(read(pathRule)).css || ''
+    var html = read(pathHtml);
+    var level = getLevel(html);
+
+    buildTag(pathGen, level, function(tags) {
+      var final = setBody(setStyle(html, style), tags);
+      var stream = fs.createWriteStream(pathHtml);
+      stream.write(final);
+      console.log('Build %s', path.dirname(pathHtml).split('src/')[1]);
+    });
+
+  })

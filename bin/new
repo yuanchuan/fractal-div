@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+
+var find = require('find');
+var compose = require('fcompose');
+
+var join = path.join;
+
+var dir = {
+  src:      join(__dirname, '../src'),
+  template: join(__dirname, '../template')
+};
+
+var message = {
+  'invalid':  'Please choose a better name for it.',
+  'exists':   'The name already exists.'
+};
+
+var name = process.argv[2];
+if (name === undefined) {
+  return;  
+}
+
+var regAccept = /^[0-9a-zA-Z\-_]+$/g;
+if (!regAccept.test(name)) {
+  return console.error(message.invalid);
+}
+
+if (fs.existsSync(join(dir.src, name))) {
+  return console.error(message.exists);
+}
+
+find.eachfile(/./, dir.template, function(file) {
+  compose(
+    file,
+    join(dir.src, name, path.basename(file)),
+    function(content, next) {
+      next(
+        content.toString().replace(/{{\s*name\s*}}/g, name) 
+      );
+    }
+  );
+});
