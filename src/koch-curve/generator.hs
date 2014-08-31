@@ -14,7 +14,6 @@ build level generator = apply level (cell "") generator
           | otherwise  =  apply (level - 1) (generator seed) generator 
 
 
--- definition goes here
 generator :: [Char] -> [Char]    
 generator seed = cell (intercalate "" (replicate 4 seed) ++ (cell ""))
 
