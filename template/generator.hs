@@ -1,4 +1,3 @@
-#!/usr/bin/env runhaskell
 
 import System.Environment
 import Data.List 
@@ -14,11 +13,16 @@ build level generator = apply level (cell "") generator
           | otherwise  =  apply (level - 1) (generator seed) generator 
 
 
--- definition goes here
+-- | base structure
+-- 
+--  <div>
+--  </div>
+--
 generator :: [Char] -> [Char]    
 generator seed = seed
 
 
+main :: IO()
 main = do
     args <- getArgs
     putStrLn (build (getLevel args) generator)  

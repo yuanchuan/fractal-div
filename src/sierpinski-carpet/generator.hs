@@ -35,6 +35,7 @@ generator seed = cell ((base seed)  ++ (cell "") ++ (base seed))
     where base seed = intercalate "" (replicate 4 seed)   
 
 
+main :: IO()
 main = do
     args <- getArgs
     putStrLn (build (getLevel args) generator)  

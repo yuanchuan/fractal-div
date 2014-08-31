@@ -29,6 +29,7 @@ generator :: [Char] -> [Char]
 generator seed = cell (intercalate "" (replicate 4 seed) ++ (cell ""))
 
 
+main :: IO()
 main = do
     args <- getArgs
     putStrLn (build (getLevel args) generator)  
