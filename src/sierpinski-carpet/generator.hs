@@ -14,6 +14,22 @@ build level generator = apply level (cell "") generator
           | otherwise  =  apply (level - 1) (generator seed) generator 
 
 
+-- | Base structure
+--
+--  <div>
+--    <div></div>
+--    <div></div>
+--    <div></div>
+--    <div></div>
+--
+--    <div></div>
+--
+--    <div></div>
+--    <div></div>
+--    <div></div>
+--    <div></div>
+--  </div> 
+--
 generator :: [Char] -> [Char]    
 generator seed = cell ((base seed)  ++ (cell "") ++ (base seed))
     where base seed = intercalate "" (replicate 4 seed)   
