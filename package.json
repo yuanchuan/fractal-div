@@ -1,7 +1,7 @@
 {
   "name": "fractal-css",
   "version": "0.0.0",
-  "description": "",
+  "description": "Fractals made out of divs",
   "dependencies": {
     "fcompose": "^0.2.1",
     "autoprefixer": "^3.0.0",
@@ -10,12 +10,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuanchuan/fractal-css"
+    "url": "https://github.com/yuanchuan/fractal-div"
   },
   "author": "yuanchuan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yuanchuan/fractal-css/issues"
+    "url": "https://github.com/yuanchuan/fractal-div/issues"
   },
-  "homepage": "https://github.com/yuanchuan/fractal-css"
+  "homepage": "https://github.com/yuanchuan/fractal-div"
 }
