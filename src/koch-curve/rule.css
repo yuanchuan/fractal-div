@@ -20,8 +20,8 @@ html, body {
   width: 600px;
 }
 
-.koch-curve>div, 
-.koch-curve div>div {
+.koch-curve     >div, 
+.koch-curve div >div {
   width: 33.333%;
   height: 1px;
   background: red;
@@ -29,21 +29,24 @@ html, body {
   position: relative;
 }
 
-.koch-curve>div:nth-child(2), 
+.koch-curve    >div:nth-child(2), 
 .koch-curve div>div:nth-child(2) {
   transform: rotate(-60deg);
   transform-origin: 0 0 ;
 }
-.koch-curve>div:nth-child(3), 
+
+.koch-curve    >div:nth-child(3), 
 .koch-curve div>div:nth-child(3) {
   transform: rotate(60deg) translate(-100%, -100%);
   transform-origin: 0;
 }
-.koch-curve>div:nth-child(4), 
+
+.koch-curve    >div:nth-child(4), 
 .koch-curve div>div:nth-child(4) {
   margin-left: -33.33%;      
 }
-.koch-curve>div:last-child, 
+
+.koch-curve    >div:last-child, 
 .koch-curve div>div:last-child {
   height: 3px;
   background: #fff;
