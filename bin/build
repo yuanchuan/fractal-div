@@ -40,9 +40,9 @@ var setStyle = function(html, style) {
 
 var setBody = function(html, tags) {
   var reg = /(<div[\s\w\-="']+>)([\s\S]*.+[\s\S]*)(<\/div>)/;
-  tags = '\n    ' + tags.replace(/^<div>|<\/div>$/, '') + '  ';
+  tags = '\n    ' + tags.trim().replace(/^<div>|<\/div>$/g, '') + '  ';
   return html.replace(reg, function(_, head, body, tail) {
-    return head + tags + tail;          
+    return head + tags + '\n  ' + tail;          
   });
 };
 
