@@ -1,6 +1,7 @@
 # Fractals made out of divs
 
-![koch curve](screenshots/koch-curve.png)
+![Koch curve](screenshots/koch-curve.png)
+![Dragon curve](screenshots/dragon-curve.png)
 
 ## Build essentials
 
