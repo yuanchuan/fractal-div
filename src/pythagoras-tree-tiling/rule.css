@@ -1,7 +1,7 @@
 html, body, div {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -27,23 +27,22 @@ html, body {
 .pythagoras-tree-tiling div>div {
   width: 100%;
   height: 100%;
+  margin-top: -100%;
   background: #ee3030;
-  transform-origin: 0 0;
   position: absolute;
+  transform-origin: 0 0;
 }
 
 .pythagoras-tree-tiling    >div:first-child, 
 .pythagoras-tree-tiling div>div:first-child {
-  margin-top: -100%;
+  left: 0;
   transform-origin: 0 100%;
   transform: rotate(-60deg);
-  left: 0;
 }
 
 .pythagoras-tree-tiling    >div:last-child, 
 .pythagoras-tree-tiling div>div:last-child { 
   right: 0;
-  margin-top: -100%;
   transform-origin: 100% 100%;
   transform: rotate(60deg);
 }

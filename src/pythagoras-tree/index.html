@@ -5,10 +5,10 @@
   <title> pythagoras-tree </title>
   <style>
     html, body, div {
-      -moz-box-sizing: border-box;
-           box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0; 
+      -moz-box-sizing: border-box; 
+           box-sizing: border-box;
     }
     html, body {
       width: 100%;
@@ -31,31 +31,34 @@
     .pythagoras-tree div>div {
       width: 70.71067%;
       height: 70.71067%; 
+      position: absolute;
       background: #ee3030;
       -webkit-transform-origin: 0 0;
           -ms-transform-origin: 0 0;
               transform-origin: 0 0;
-      position: absolute;
     }
     .pythagoras-tree    >div:first-child, 
     .pythagoras-tree div>div:first-child {
+      margin-top: -50%;
+      margin-left: -50%;
+      left: 0; 
+      -webkit-transform-origin: 0 0; 
+          -ms-transform-origin: 0 0; 
+              transform-origin: 0 0;
       -webkit-transform: rotate(-45deg);
           -ms-transform: rotate(-45deg);
               transform: rotate(-45deg);
-      margin-top: -50%;
-      margin-left: -50%;
-      left: 0;
     }
     .pythagoras-tree    >div:last-child, 
     .pythagoras-tree div>div:last-child { 
+      margin-top: -50%;
+      right: -50%; 
       -webkit-transform-origin: 100% 0; 
           -ms-transform-origin: 100% 0; 
               transform-origin: 100% 0;
-      right: -50%;
       -webkit-transform: rotate(45deg);
           -ms-transform: rotate(45deg);
               transform: rotate(45deg);
-      margin-top: -50%;
     }
   </style>
 </head>

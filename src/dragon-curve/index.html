@@ -5,10 +5,10 @@
   <title> dragon-curve </title>
   <style>
     html, body, div {
-      -moz-box-sizing: border-box;
-           box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0; 
+      -moz-box-sizing: border-box; 
+           box-sizing: border-box;
     }
     html, body {
       width: 100%;
@@ -25,22 +25,22 @@
       bottom: 0;
       width: 300px;
     }
-    .dragon-curve     > div, 
-    .dragon-curve div > div {
+    .dragon-curve     >div, 
+    .dragon-curve div >div {
       height: 1px;
     }
-    .dragon-curve     > div:empty, 
-    .dragon-curve div > div:empty {
+    .dragon-curve     >div:empty, 
+    .dragon-curve div >div:empty {
       background: red;
     }
     .dragon-curve div >div:nth-child(1), 
     .dragon-curve div >div:nth-child(2),  
     .dragon-curve     >div:nth-child(1), 
     .dragon-curve     >div:nth-child(2) {
+      width: 70.71067%;
       -webkit-transform-origin: 0 0;
           -ms-transform-origin: 0 0;
               transform-origin: 0 0;
-      width: 70.71067%;
     }
     .dragon-curve div >div:nth-child(1), 
     .dragon-curve     >div:nth-child(1) {

@@ -1,7 +1,7 @@
 html, body, div {
-  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0; 
+  box-sizing: border-box;
 }
 
 html, body {
@@ -27,23 +27,24 @@ html, body {
 .pythagoras-tree div>div {
   width: 70.71067%;
   height: 70.71067%; 
+  position: absolute;
   background: #ee3030;
   transform-origin: 0 0;
-  position: absolute;
 }
 
 .pythagoras-tree    >div:first-child, 
 .pythagoras-tree div>div:first-child {
-  transform: rotate(-45deg);
   margin-top: -50%;
   margin-left: -50%;
-  left: 0;
+  left: 0; 
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
 }
 
 .pythagoras-tree    >div:last-child, 
 .pythagoras-tree div>div:last-child { 
-  transform-origin: 100% 0;
-  right: -50%;
-  transform: rotate(45deg);
   margin-top: -50%;
+  right: -50%; 
+  transform-origin: 100% 0;
+  transform: rotate(45deg);
 }
