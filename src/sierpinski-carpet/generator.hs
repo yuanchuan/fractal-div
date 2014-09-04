@@ -5,11 +5,11 @@ cell :: [Char] -> [Char]
 cell seed =  intercalate seed ["<div>", "</div>"]  
 
 build :: Int -> ([Char] -> [Char]) -> [Char]
-build level generator = apply level (cell "") generator
+build order generator = apply order (cell "") generator
     where 
-      apply level seed generator
-          | level <= 0 =  seed
-          | otherwise  =  apply (level - 1) (generator seed) generator 
+      apply order seed generator
+          | order <= 0 =  seed
+          | otherwise  =  apply (order - 1) (generator seed) generator 
 
 
 -- | Base structure

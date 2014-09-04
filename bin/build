@@ -47,15 +47,15 @@ var setBody = function(html, tags) {
 };
 
 var getLevel = function(html) {
-  var level = 0;
-  html.replace(/data\-level="(\d+)"/, function(_, n) {
-    level = n || 0;;
+  var order = 0;
+  html.replace(/data\-order="(\d+)"/, function(_, n) {
+    order = n || 0;;
   });
-  return level;
+  return order;
 }
 
-var buildTag = function(generator, level, fn) {
-  var cmd = 'runhaskell ' + generator + ' ' + level;
+var buildTag = function(generator, order, fn) {
+  var cmd = 'runhaskell ' + generator + ' ' + order;
   exec(cmd, {maxBuffer: 10000 * 1024}, function(err, output) {
     if (err) throw err;
     fn(output);
@@ -71,9 +71,9 @@ find
 
     var style = autoprefixer.process(read(pathRule)).css || ''
     var html = read(pathHtml);
-    var level = getLevel(html);
+    var order = getLevel(html);
 
-    buildTag(pathGen, level, function(tags) {
+    buildTag(pathGen, order, function(tags) {
       var final = setBody(setStyle(html, style), tags);
       var stream = fs.createWriteStream(pathHtml);
       stream.write(final);
