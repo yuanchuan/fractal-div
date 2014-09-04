@@ -24,34 +24,25 @@ html, body {
 .koch-curve div >div {
   width: 33.333%;
   height: 1px;
-  background: red;
+  background: #fff;
   float: left;
   position: relative;
 }
 
+.koch-curve     >div:empty,
+.koch-curve div >div:empty { 
+  background: red;
+}
+
 .koch-curve    >div:nth-child(2), 
 .koch-curve div>div:nth-child(2) {
-  transform: rotate(-60deg);
   transform-origin: 0 0 ;
+  transform: rotate(-60deg);
 }
 
 .koch-curve    >div:nth-child(3), 
 .koch-curve div>div:nth-child(3) {
-  transform: rotate(60deg) translate(-100%, -100%);
-  transform-origin: 0;
+  margin-left: -33.33%;
+  transform-origin: 100% 100%;
+  transform: rotate(60deg);
 }
-
-.koch-curve    >div:nth-child(4), 
-.koch-curve div>div:nth-child(4) {
-  margin-left: -33.33%;      
-}
-
-.koch-curve    >div:last-child, 
-.koch-curve div>div:last-child {
-  height: 3px;
-  background: #fff;
-  margin-left: -66.666%;
-  top: -1px;
-  position: relative;
-}
- 
