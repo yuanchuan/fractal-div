@@ -17,12 +17,10 @@ build level generator = apply level (cell "") generator
 --  <div>
 --    <div></div>
 --    <div></div>
-
---    <div></div>
 --  </div>
 --
 generator :: [Char] -> [Char]    
-generator seed = cell (intercalate "" (replicate 2 seed) ++ (cell ""))
+generator seed = cell (intercalate "" (replicate 2 seed))
 
 
 main :: IO()

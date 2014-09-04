@@ -24,6 +24,10 @@ html, body {
 .dragon-curve     > div, 
 .dragon-curve div > div {
   height: 1px;
+}
+
+.dragon-curve     > div:empty, 
+.dragon-curve div > div:empty {
   background: red;
 }
 
@@ -31,9 +35,8 @@ html, body {
 .dragon-curve div >div:nth-child(2),  
 .dragon-curve     >div:nth-child(1), 
 .dragon-curve     >div:nth-child(2) {
-  width: 70.71067%;
-  border-color: red;
   transform-origin: 0 0;
+  width: 70.71067%;
 }
 
 .dragon-curve div >div:nth-child(1), 
@@ -45,12 +48,4 @@ html, body {
 .dragon-curve     >div:nth-child(2) {
   transform: rotate(-135deg);
   margin-left: 100%;
-}
-
-.dragon-curve div >div:nth-child(3), 
-.dragon-curve     >div:nth-child(3) {
-  width: 100%;
-  margin-top: -2px;
-  height: 2px;
-  background: #fff;
 }
