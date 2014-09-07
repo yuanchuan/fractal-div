@@ -1,0 +1,48 @@
+html, body, div {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.levy-c-curve {
+  margin: auto;  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+  width: 200px;
+}
+
+.levy-c-curve     >div,
+.levy-c-curve div >div {
+  height: 1px;
+  width: 70.71067%;
+  position: absolute;
+}
+
+.levy-c-curve     >div:empty,
+.levy-c-curve div >div:empty {
+  background: red;
+}
+
+.levy-c-curve     >div:first-child,
+.levy-c-curve div >div:first-child {
+  left: 0;
+  transform-origin: 0 0;
+  transform: rotate(-315deg);
+}
+
+.levy-c-curve     >div:last-child,
+.levy-c-curve div >div:last-child {
+  right: 0;
+  transform-origin: 100% 0;
+  transform: rotate(315deg);
+}
