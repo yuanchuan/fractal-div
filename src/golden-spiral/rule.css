@@ -19,12 +19,12 @@ html, body {
   bottom: 0;
 
   width: 1000px;
-  height: 618px;
+  height: 618.033px;
 }
 
 .golden-spiral    > div:first-child, 
 .golden-spiral div> div:first-child {
-  width: 61.8%;
+  width: 61.8033%;
   height: 100%;
   border-radius: 100% 0 0 0;
   border-left: 1px solid red;
@@ -32,12 +32,12 @@ html, body {
 }
 .golden-spiral    > div:last-child, 
 .golden-spiral div> div:last-child {
-  height: 61.8%;
-  width: 61.8%;
+  height: 61.8033%;
+  width: 61.8033%;
   position: absolute;
   top: 0;
-  left: 61.8%;
-  margin-left: 38.2%;
+  left: 61.8033%;
+  margin-left: 38.1967%;
   transform-origin: 0 0;
   transform: rotate(90deg);
 }
